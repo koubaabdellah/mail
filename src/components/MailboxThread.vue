@@ -23,9 +23,9 @@
 					:open-first="mailbox.specialRole !== 'drafts'" />
 				<template v-else>
 					<div class="app-content-list-item">
-						<SectionTitle v-if="hasImportantEnvelopes" class="important" :name="t('mail', 'Important')" />
+						<SectionTitle v-if="!hasImportantEnvelopes" class="important" :name="t('mail', 'Important')" />
 						<Popover trigger="hover focus">
-							<ButtonVue v-if="hasImportantEnvelopes"
+							<ButtonVue v-if="!hasImportantEnvelopes"
 								slot="trigger"
 								type="tertiary-no-background"
 								:aria-label="t('mail', 'Important info')"
@@ -39,7 +39,7 @@
 							</p>
 						</Popover>
 					</div>
-					<Mailbox v-if="hasImportantEnvelopes"
+					<Mailbox v-if="!hasImportantEnvelopes"
 						class="nameimportant"
 						:account="unifiedAccount"
 						:mailbox="unifiedInbox"
@@ -285,6 +285,9 @@ export default {
 
 .app-content-list-item:hover {
 	background: transparent;
+}
+app-content-list-item {
+	flex: 0;
 }
 
 .button {
