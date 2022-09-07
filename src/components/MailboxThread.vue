@@ -22,11 +22,10 @@
 					:bus="bus"
 					:open-first="mailbox.specialRole !== 'drafts'" />
 				<template v-else>
-					<div class="app-content-list-item">
-						<SectionTitle v-if="!hasImportantEnvelopes" class="important" :name="t('mail', 'Important')" />
+					<div v-if="hasImportantEnvelopes" class="app-content-list-item">
+						<SectionTitle class="important" :name="t('mail', 'Important')" />
 						<Popover trigger="hover focus">
-							<ButtonVue v-if="!hasImportantEnvelopes"
-								slot="trigger"
+							<ButtonVue slot="trigger"
 								type="tertiary-no-background"
 								:aria-label="t('mail', 'Important info')"
 								class="button">
@@ -39,7 +38,7 @@
 							</p>
 						</Popover>
 					</div>
-					<Mailbox v-if="!hasImportantEnvelopes"
+					<Mailbox v-if="hasImportantEnvelopes"
 						class="nameimportant"
 						:account="unifiedAccount"
 						:mailbox="unifiedInbox"
@@ -148,8 +147,8 @@ export default {
 			return this.$store.getters.getEnvelopes(this.mailbox.databaseId, this.searchQuery).length > 0
 		},
 		hasImportantEnvelopes() {
-			if (this.searchQuery) {
-				return this.$store.getters.getEnvelopes(this.unifiedInbox.databaseId, this.searchQuery + ' is:important').length > 0
+			if (this.searchQuery === undefined) {
+				return this.$store.getters.getEnvelopes(this.unifiedInbox.databaseId, 'is:pi-important').length > 0
 			}
 			return false
 		},
