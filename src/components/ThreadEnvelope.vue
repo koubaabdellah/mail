@@ -143,7 +143,7 @@
 				</template>
 			</div>
 		</div>
-		<Loading v-if="loading" />
+		<LoadingSkeleton v-if="loading" :with-avatar="false" />
 		<Message v-else-if="message"
 			:envelope="envelope"
 			:message="message"
@@ -162,7 +162,7 @@ import Error from './Error'
 import importantSvg from '../../img/important.svg'
 import IconFavorite from 'vue-material-design-icons/Star'
 import JunkIcon from './icons/JunkIcon'
-import Loading from './Loading'
+import LoadingSkeleton from './LoadingSkeleton'
 import logger from '../logger'
 import Message from './Message'
 import MenuEnvelope from './MenuEnvelope'
@@ -188,7 +188,7 @@ export default {
 		Error,
 		IconFavorite,
 		JunkIcon,
-		Loading,
+		LoadingSkeleton,
 		MenuEnvelope,
 		Moment,
 		Message,
