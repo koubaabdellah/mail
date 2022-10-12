@@ -1,9 +1,14 @@
 <template>
 	<div>
 		<div v-for="i in numberOfLines" :key="i" class="item-list__entry">
-			<NcAvatar v-if="withAvatar" class="item-avatar" :size="44" />
+			<NcAvatar v-if="withAvatar"
+				class="item-avatar"
+				:size="44" />
 			<div class="item__details">
 				<h3>&nbsp;</h3>
+				<p class="message">
+					&nbsp;
+				</p>
 				<p class="message">
 					&nbsp;
 				</p>
@@ -45,14 +50,13 @@ export default {
 		margin-top: auto;
 		margin-bottom: auto;
 		background-color: var(--color-background-hover) !important;
-		animation-name: loadingskeleton;
-		animation-duration: 2s;
+		animation: loadingskeleton 2s ease infinite alternate,
+		nudge 3s linear infinite alternate;
 	}
 	.item__details {
 		padding-left: 8px;
-		max-height: 44px;
+		max-height: 70px;
 		flex-grow: 1;
-		overflow: hidden;
 		display: flex;
 		flex-direction: column;
 		h3,
@@ -63,23 +67,28 @@ export default {
 		h3 {
 			font-size: 100%;
 			margin: 0;
-			animation-name: loadingskeleton;
-			animation-duration: 2s;
+			animation: loadingskeleton 2s ease infinite alternate,
+			nudge 3s linear infinite alternate;
+			width: 60%;
 		}
 		.message {
-			width: 80%;
+			width: 100%;
 			height: 15px;
 			margin-top: 5px;
-			animation-name: loadingskeleton;
-			animation-duration: 2s;
+			animation: loadingskeleton 2s ease infinite alternate,
+			nudge 3s linear infinite alternate;
 		}
 	}
 	@keyframes loadingskeleton {
 		0%   {background-color: var(--color-border);}
 		25%  {background-color: var(--color-background-hover);}
-		60%  {background-color: var(--color-background-dark);}
-		80% {background-color: var(--color-background-hover);}
-		100% {background-color: var(--color-border);}
+		40%  {background-color: var(--color-placeholder-light);}
+		50% {background-color: var(--color-loading-light);}
+		65%  {background-color: var(--color-background-hover);}
+		75%  {background-color: var(--color-placeholder-light);}
+		80% {background-color: var(--color-loading-light);}
+		90% {background-color: var(--color-placeholder-light);}
+		100% {background-color: var(--color-placeholder-light);}
 	}
 }
 
