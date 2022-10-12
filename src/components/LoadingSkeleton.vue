@@ -75,12 +75,11 @@ export default {
 		}
 	}
 	@keyframes loadingskeleton {
-		0%   {background-color: var(--color-placeholder-dark);}
+		0%   {background-color: var(--color-border);}
 		25%  {background-color: var(--color-background-hover);}
-		40%  {background-color: var(--color-background-darker);}
-		60%  {background-color: var(--color-background-hover);}
-		80% {background-color: var(--color-background-darker);}
-		100% {background-color: var(--color-background-dark);}
+		60%  {background-color: var(--color-background-dark);}
+		80% {background-color: var(--color-background-hover);}
+		100% {background-color: var(--color-border);}
 	}
 }
 
