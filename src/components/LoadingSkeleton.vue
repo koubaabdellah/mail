@@ -1,16 +1,14 @@
 <template>
 	<div>
 		<div v-for="i in numberOfLines" :key="i" class="item-list__entry">
-			<IconCheckBoxBlankCircle v-if="withAvatar"
-				class="item-avatar"
-				fill-color="#ededed"
-				:size="44" />
+			<div
+				class="item-avatar" />
 			<div class="item__details">
 				<h3>&nbsp;</h3>
 				<p class="message">
 					&nbsp;
 				</p>
-				<p class="message">
+				<p class="message-preview">
 					&nbsp;
 				</p>
 			</div>
@@ -19,12 +17,14 @@
 </template>
 
 <script>
+/*
 import IconCheckBoxBlankCircle from 'vue-material-design-icons/CheckboxBlankCircle'
+*/
 
 export default {
 	name: 'LoadingSkeleton',
 	components: {
-		IconCheckBoxBlankCircle,
+		/* IconCheckBoxBlankCircle, */
 	},
 	props: {
 		numberOfLines: {
@@ -46,13 +46,15 @@ export default {
 	display: flex;
 	align-items: flex-start;
 	padding: 8px;
+	z-index: 1;
 	.item-avatar {
 		position: relative;
-		margin-top: auto;
-		margin-bottom: auto;
-		border-radius: 33px;
+		border-radius: 50px;
+		width: 44px;
+		height: 44px;
 		animation: loadingskeleton 2s ease infinite alternate,
 		nudge 3s linear infinite alternate;
+		z-index: 0;
 	}
 	.item__details {
 		padding-left: 8px;
@@ -61,7 +63,7 @@ export default {
 		display: flex;
 		flex-direction: column;
 		h3,
-		.message {
+		.message.message-preview {
 			white-space: nowrap;
 			background-color: var(--color-background-hover);
 		}
@@ -70,11 +72,18 @@ export default {
 			margin: 0;
 			animation: loadingskeleton 2s ease infinite alternate,
 			nudge 3s linear infinite alternate;
-			width: 60%;
+			width: 40%;
 			height: 15px;
 		}
-		.message {
+		.message-preview {
 			width: 100%;
+			height: 15px;
+			margin-top: 5px;
+			animation: loadingskeleton 2s ease infinite alternate,
+			nudge 3s linear infinite alternate;
+		}
+		.message {
+			width: 70%;
 			height: 15px;
 			margin-top: 5px;
 			animation: loadingskeleton 2s ease infinite alternate,
