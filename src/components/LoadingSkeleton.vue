@@ -1,8 +1,9 @@
 <template>
 	<div>
 		<div v-for="i in numberOfLines" :key="i" class="item-list__entry">
-			<NcAvatar v-if="withAvatar"
+			<IconCheckBoxBlankCircle v-if="withAvatar"
 				class="item-avatar"
+				fill-color="#ededed"
 				:size="44" />
 			<div class="item__details">
 				<h3>&nbsp;</h3>
@@ -18,12 +19,12 @@
 </template>
 
 <script>
-import NcAvatar from '@nextcloud/vue/dist/Components/NcAvatar'
+import IconCheckBoxBlankCircle from 'vue-material-design-icons/CheckboxBlankCircle'
 
 export default {
 	name: 'LoadingSkeleton',
 	components: {
-		NcAvatar,
+		IconCheckBoxBlankCircle,
 	},
 	props: {
 		numberOfLines: {
@@ -49,7 +50,7 @@ export default {
 		position: relative;
 		margin-top: auto;
 		margin-bottom: auto;
-		background-color: var(--color-background-hover) !important;
+		border-radius: 33px;
 		animation: loadingskeleton 2s ease infinite alternate,
 		nudge 3s linear infinite alternate;
 	}
@@ -70,6 +71,7 @@ export default {
 			animation: loadingskeleton 2s ease infinite alternate,
 			nudge 3s linear infinite alternate;
 			width: 60%;
+			height: 15px;
 		}
 		.message {
 			width: 100%;
