@@ -46,15 +46,14 @@ export default {
 	display: flex;
 	align-items: flex-start;
 	padding: 8px;
-	z-index: 1;
 	.item-avatar {
 		position: relative;
+		top: 4px;
 		border-radius: 50px;
 		width: 44px;
 		height: 44px;
 		animation: loadingskeleton 2s ease infinite alternate,
 		nudge 3s linear infinite alternate;
-		z-index: 0;
 	}
 	.item__details {
 		padding-left: 8px;
