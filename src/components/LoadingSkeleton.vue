@@ -17,15 +17,9 @@
 </template>
 
 <script>
-/*
-import IconCheckBoxBlankCircle from 'vue-material-design-icons/CheckboxBlankCircle'
-*/
 
 export default {
 	name: 'LoadingSkeleton',
-	components: {
-		/* IconCheckBoxBlankCircle, */
-	},
 	props: {
 		numberOfLines: {
 			type: Number,

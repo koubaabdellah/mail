@@ -178,7 +178,7 @@
 			</div>
 		</transition>
 		<transition-group name="list">
-			<LoadingSkeleton v-if="refreshing" />
+			<LoadingSkeleton v-if="refreshing" key="i" />
 			<Envelope
 				v-for="(env, index) in envelopes"
 				:key="env.databaseId"
